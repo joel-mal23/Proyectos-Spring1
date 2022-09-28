@@ -1,0 +1,15 @@
+server:
+ port: 8282
+ 
+spring:
+ cloud:
+  config:
+   server:
+    git:
+     default-label: master
+     uri: https://github.com/joel-mal23/Proyectos-Spring1.git
+     searchPaths: config-data
+     username: ${GIT_USER}
+     password: ${GIT_PASSWORD}
+ profiles:
+  active: dev
