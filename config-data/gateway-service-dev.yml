@@ -1,8 +1,5 @@
 server:
   port: 8383
-spring:
-  application:
-    name: gateway-service
 
 eureka:
   client:
@@ -10,24 +7,23 @@ eureka:
     register-with-eureka: true
     service-url:
       default-zone: http://localhost:8761/eureka
-    instance:
-      hostname: localhost
+  instance:
+    hostname: localhost
+
 spring:
+  application:
+    name: gateway-service
   cloud:
     gateway:
       discovery:
         locator:
           enabled: true
       routes:
-        -id: ms-empleados
+      - id: ms-empleados
         uri: lb://ms-empleados
-        predicates:
+        predicates: 
           - Path=/ms-empleados/**
-
-        -id: ms-clientes    # Nombre del servidor en el Eureka
+      - id: ms-clientes    # Nombre del servidor en el Eureka
         uri: lb://ms-clientes # uri qye se define
         predicates:
           - Path=/ms-clientes/**  #path definido en el Controller (/**) considera todo lo posterior a ese path
-
-
-       
