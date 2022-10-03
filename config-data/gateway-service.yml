@@ -3,6 +3,10 @@ server:
 spring:
  application:
   name: gateway-service
+ security:
+  user:
+   name: joel2015
+   password: joel2015#
  cloud:
   config:
    enabled: true
