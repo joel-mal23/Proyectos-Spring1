@@ -1,5 +1,25 @@
-server:
-  port: 8383
+spring:
+ application:
+  name: ms-empleados
+ cloud:
+  config:
+   enabled: true
+   uri: http://localhost:8282
+ profiles:
+  active: dev
+  gateway:
+   discovery:
+        locator:
+          enabled: true
+   routes:
+   - id: ms-empleados
+     uri: lb://ms-empleados
+     predicates: 
+      - Path=/ms-empleados/**
+   - id: ms-clientes    # Nombre del servidor en el Eureka
+     uri: lb://ms-clientes # uri qye se define
+     predicates:
+      - Path=/ms-clientes/**  #path definido en el Controller (/**) considera todo lo posterior a ese path
 
 eureka:
   client:
@@ -9,21 +29,4 @@ eureka:
       default-zone: http://localhost:8761/eureka
   instance:
     hostname: localhost
-
-spring:
-  application:
-    name: gateway-service
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: true
-      routes:
-      - id: ms-empleados
-        uri: lb://ms-empleados
-        predicates: 
-          - Path=/ms-empleados/**
-      - id: ms-clientes    # Nombre del servidor en el Eureka
-        uri: lb://ms-clientes # uri qye se define
-        predicates:
-          - Path=/ms-clientes/**  #path definido en el Controller (/**) considera todo lo posterior a ese path
+  
