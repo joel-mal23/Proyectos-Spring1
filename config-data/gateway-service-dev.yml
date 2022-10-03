@@ -11,12 +11,12 @@ spring:
         locator:
           enabled: true
    routes:
-   - id: ms-empleados
-     uri: lb://ms-empleados
+   - id: ms-empleados # Nombre del servidor en el Eureka
+     uri: lb://ms-empleados uri que se define en el Controller
      predicates: 
-      - Path=/ms-empleados/**
+      - Path=/ms-empleados/** #path definido en el Controller (/**) considera todo lo posterior a ese path
    - id: ms-clientes    # Nombre del servidor en el Eureka
-     uri: lb://ms-clientes # uri qye se define
+     uri: lb://ms-clientes # uri que se define en el Controller
      predicates:
       - Path=/ms-clientes/**  #path definido en el Controller (/**) considera todo lo posterior a ese path
 eureka:
