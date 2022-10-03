@@ -1,3 +1,13 @@
+server:
+  port: 8088
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      default-zone: http://localhost:8761/eureka
+  instance:
+    hostname: localhost
 spring:
  application:
   name: gateway-service
@@ -7,3 +17,19 @@ spring:
    uri: http://localhost:8282
  profiles:
   active: dev
+  gateway:
+   discovery:
+        locator:
+          enabled: true
+   routes:
+   - id: ms-empleados
+     uri: lb://MS-EMPLEADOS
+     predicates: 
+      - Path=/ms-empleados/**
+   - id: ms-clientes    # Nombre del servidor en el Eureka
+     uri: 8761://MS-CLIENTES # uri qye se define
+     predicates:
+      - Path=/ms-clientes/**  #path definido en el Controller (/**) considera todo lo posterior a ese path
+      
+      
+      
