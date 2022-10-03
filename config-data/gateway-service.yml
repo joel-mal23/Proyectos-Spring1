@@ -1,6 +1,8 @@
 spring:
+ server:
+  port: ${PORT:${SERVER_PORT:0}}
  application:
-  name: ms-empleados
+  name: gateway-service
  cloud:
   config:
    enabled: true
