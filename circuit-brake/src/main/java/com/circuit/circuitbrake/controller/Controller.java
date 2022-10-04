@@ -16,7 +16,7 @@ public class Controller {
 	@GetMapping("/getOne")
 	public ResponseEntity<?> getMetodoOne (){
 		
-		//return (ResponseEntity<?>) ResponseEntity.ok("OK"); 
+		//return (ResponseEntity<?>) ResponseEntity.ok("OPERACION OK"); 
 		return (ResponseEntity<?>) ResponseEntity.badRequest();
 	}
 	
@@ -34,7 +34,7 @@ public class Controller {
 	
 	private ResponseEntity<?> getOneFallback (RuntimeException e){ //se solicita que se retorne la excepcion
 		
-		return new ResponseEntity<> ("La consulta por 'One' no se encuentra disponible",HttpStatus.OK);
+		return new ResponseEntity<> ("OPERACION INCORRECTA, no se encuentra disponible el julanito microservicio",HttpStatus.OK);
 		
 	}
 	
