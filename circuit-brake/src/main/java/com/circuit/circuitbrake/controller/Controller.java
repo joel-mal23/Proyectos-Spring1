@@ -16,7 +16,7 @@ public class Controller {
 	@GetMapping("/getOne")
 	public ResponseEntity<?> getMetodoOne (){
 		
-		//return (ResponseEntity<?>) ResponseEntity.ok("ok"); 
+		//return (ResponseEntity<?>) ResponseEntity.ok("OK"); 
 		return (ResponseEntity<?>) ResponseEntity.badRequest();
 	}
 	
