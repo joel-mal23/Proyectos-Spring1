@@ -4,6 +4,6 @@ spring:
  cloud:
   config:
    enabled: true
-   uri: http://localhost:8383
+   uri: http://localhost:8282
  profiles:
   active: dev
