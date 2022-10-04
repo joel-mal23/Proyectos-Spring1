@@ -11,14 +11,14 @@ spring:
         locator:
           enabled: true
    routes:
-   - id: ms-empleados
-     uri: lb://ms-empleados
+   - id: ms-empleados #definido por mi solo es el nombre que se le quiera colocar
+     uri: lb://ms-empleados # application name del ms : nombre del micro
      predicates: 
-      - Path=/ms-empleados/**
-   - id: ms-clientes    # Nombre del servidor en el Eureka
+      - Path=/ms-empleados/** #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path
+   - id: ms-clientes    #definido por mi solo es el nombre que se le quiera colocar
      uri: lb://ms-clientes # uri qye se define
      predicates:
-      - Path=/ms-clientes/**  #path definido en el Controller (/**) considera todo lo posterior a ese path
+      - Path=/ms-clientes/**  #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path
 eureka:
   client:
     fetch-registry: true
