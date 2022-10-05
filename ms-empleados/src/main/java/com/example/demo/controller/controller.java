@@ -27,7 +27,7 @@ public class controller {
 	@GetMapping("/empl")
 	public ResponseEntity<?> responseEntity (){
 		
-		return new ResponseEntity<>( new VipEmpleados("Joel", "Malvaez", "Elizalde",29), HttpStatus.OK);
+		return new ResponseEntity<>(("Empleados"), HttpStatus.OK);
 	
 	}
 	
@@ -37,7 +37,7 @@ public class controller {
 		if(serverPort)
 		{
 			
-			return new ResponseEntity<>(new EmpleadoVO("joel","ApellidoP",12), HttpStatus.OK);
+			return new ResponseEntity<>(("joel"), HttpStatus.OK);
 		
 		}
 		

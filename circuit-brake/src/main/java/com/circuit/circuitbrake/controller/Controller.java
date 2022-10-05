@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.circuit.circuitbrake.empleadosfeingclient.EmpleadosFeingClient;
 import com.circuit.circuitbrake.feignclient.ClientesFeingClient;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
@@ -23,6 +24,8 @@ public class Controller {
 	@Autowired
 	ClientesFeingClient clientesFeingClient; // 5.- Se inyecta el objeto de la insterfaz: FEIGN
 	
+	@Autowired
+	EmpleadosFeingClient empleadosFeingClient; 
 	
 	@CircuitBreaker(name="getOneObjetos", fallbackMethod = "getOneFallback")
 	@GetMapping("/getOne")
@@ -37,6 +40,8 @@ public class Controller {
 	@CircuitBreaker(name="getAllObjetos", fallbackMethod = "getAllFallback")
 	@GetMapping("/getAll")
 	public ResponseEntity<?> getMetodoAll(){
+		
+		String Cadena = empleadosFeingClient.responseEntity();
 		
 		
 			return new ResponseEntity<> ("Get Objetos VO ", HttpStatus.OK);
