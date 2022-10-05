@@ -16,8 +16,8 @@ public class Controller {
 	@GetMapping("/getOne")
 	public ResponseEntity<?> getMetodoOne (){
 		
-		//return (ResponseEntity<?>) ResponseEntity.ok("OPERACION OK"); 
-		return (ResponseEntity<?>) ResponseEntity.badRequest();
+		return (ResponseEntity<?>) ResponseEntity.ok("OPERACION OK"); 
+		//return (ResponseEntity<?>) ResponseEntity.badRequest();
 	}
 	
 	@CircuitBreaker(name="getAllObjetos", fallbackMethod = "getAllFallback")
