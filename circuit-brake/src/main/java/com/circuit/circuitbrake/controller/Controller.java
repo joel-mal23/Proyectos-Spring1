@@ -11,21 +11,26 @@ import com.circuit.circuitbrake.feignclient.ClientesFeingClient;
 
 import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 
+/*
+ * 5.- Se inyecta el objeto del cliente consumible
+ * 6.- Se invoca el objeto y metodo de la interfas FEIGN
+ */
+
 @RestController
 @RequestMapping("/circuitBrakeMicro")
 public class Controller {
 	
 	@Autowired
-	ClientesFeingClient clientesFeingClient; //  FEIGN
+	ClientesFeingClient clientesFeingClient; // 5.- Se inyecta el objeto de la insterfaz: FEIGN
 	
 	
 	@CircuitBreaker(name="getOneObjetos", fallbackMethod = "getOneFallback")
 	@GetMapping("/getOne")
 	public ResponseEntity<?> getMetodoOne (){
 		
-		String Cadena = clientesFeingClient.responseEntityPost(); //  FEIGN
+		String Cadena = clientesFeingClient.responseEntityPost(); // 6.- Se invoca el objeto y metodo de la interfas FEIGN 
 		
-		return (ResponseEntity<?>) ResponseEntity.ok("OPERACION OK " + Cadena);  //  FEIGN Y CUIRCUIT
+		return (ResponseEntity<?>) ResponseEntity.ok("OPERACION OK " + Cadena);  
 		//return (ResponseEntity<?>) ResponseEntity.badRequest();
 	}
 	
@@ -39,7 +44,7 @@ public class Controller {
 	}
 	
 	
-	//Se escriben los metodos Fallbackś
+	//Se escriben los metodos Fallbackś CIRCUIT-BRAKE
 	
 	private ResponseEntity<?> getOneFallback (RuntimeException e){ //se solicita que se retorne la excepcion
 		
