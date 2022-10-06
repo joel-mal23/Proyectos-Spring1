@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.circuit.circuitbrake.model.VOEmpleadosFeing;
 
-@FeignClient(name = "ms-empleados",url= "http://localhost:8486//empl") //  FEIGN
+@FeignClient(name = "ms-empleados",url= "http://localhost:8486/ms-empleados") //  FEIGN
 public interface EmpleadosFeingClient {
 	
 	@GetMapping

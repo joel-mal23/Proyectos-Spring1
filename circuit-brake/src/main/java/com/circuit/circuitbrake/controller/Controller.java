@@ -44,7 +44,7 @@ public class Controller {
 		String Cadena = empleadosFeingClient.responseEntity();
 		
 		
-			return new ResponseEntity<> ("Get Objetos VO ", HttpStatus.OK);
+			return (ResponseEntity<?>) ResponseEntity.ok("Get Objetos VO " + Cadena);
 
 	}
 	
