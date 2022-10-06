@@ -16,7 +16,7 @@ public class Controller {
 	
 	@PostMapping
 	public ResponseEntity<?> responseEntityPost () {
-		return new ResponseEntity<>("Respuesta desde Cliente", HttpStatus.OK);
+		return new ResponseEntity<>("Respuesta desde ms-cliente", HttpStatus.OK);
 		
 		}
 

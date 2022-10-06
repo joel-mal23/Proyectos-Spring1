@@ -34,15 +34,8 @@ public class controller {
 	@PostMapping
 	public ResponseEntity<?> responseEntityPost () {
 		
-		if(serverPort)
-		{
-			
-			return new ResponseEntity<>(("joel"), HttpStatus.OK);
-		
-		}
-		
-		return new ResponseEntity<>("Error", HttpStatus.BAD_REQUEST);
-		
+		return new ResponseEntity<>("Respuesta desde ms-empleados", HttpStatus.OK);
+
 		}
 	
 	

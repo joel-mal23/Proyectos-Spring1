@@ -41,7 +41,7 @@ public class Controller {
 	@GetMapping("/getAll")
 	public ResponseEntity<?> getMetodoAll(){
 		
-		String Cadena = empleadosFeingClient.responseEntity();
+		String Cadena = empleadosFeingClient.responseEntityPost();
 		
 		
 			return (ResponseEntity<?>) ResponseEntity.ok("Get Objetos VO " + Cadena);
