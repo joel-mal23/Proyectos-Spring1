@@ -24,7 +24,7 @@ public class controller {
 	@GetMapping("/empl")
 	public ResponseEntity<?> responseEntity (){
 		
-		return new ResponseEntity<>(("Empleados"), HttpStatus.OK);
+		return new ResponseEntity<>(("Respuesta de Micro-Empleados"), HttpStatus.OK);
 	
 	}
 	

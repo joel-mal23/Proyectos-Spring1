@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public interface ClientesFeingClient {
 	
 	@PostMapping
-	String responseEntityPost(); //  FEIGN
+	public String responseEntityPost(); //  FEIGN
 	
 	
 }

@@ -22,7 +22,11 @@ spring:
    - id: ms-circuit-brake    #definido por mi solo es el nombre que se le quiera colocar
      uri: lb://ms-circuit-brake
      predicates:
-      - Path=/circuitBrakeMicro/**  #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path
+      - Path=/circuitBrakeMicro/**  #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path     
+   - id: ms-seguros    #definido por mi solo es el nombre que se le quiera colocar
+     uri: lb://ms-seguros
+     predicates:
+      - Path=/ms-seguros/**  #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path
 eureka:
   client:
     fetch-registry: true

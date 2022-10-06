@@ -19,12 +19,13 @@ public class Controller {
 	EmpleadosOpenFeing empleadosOpenFeing;
 	
 	@CircuitBreaker(name="getRespEmplCircuitBreak", fallbackMethod = "getRespEmplCircuitBreakFallBack")
-	@GetMapping
+	@GetMapping("/Consumo-ms-empl")
 	public ResponseEntity<?> getRespuestaEmp(){
 		
-		ResponseEntity<?> Cadena = empleadosOpenFeing.responseEntity();
 		
-		return (ResponseEntity<?>)ResponseEntity.ok("OPERACION OK " + Cadena);
+		String CAdena = empleadosOpenFeing.responseEntity(); 
+		
+		return (ResponseEntity<?>) ResponseEntity.ok("Operacion Ok " + CAdena);
 
 	}
 	
