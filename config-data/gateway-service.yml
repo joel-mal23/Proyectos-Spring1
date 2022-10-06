@@ -19,8 +19,8 @@ spring:
      uri: lb://ms-clientes # uri qye se define
      predicates:
       - Path=/ms-clientes/**  #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path
-      - id: ms-circuit-brake    #definido por mi solo es el nombre que se le quiera colocar
-     uri: lb://ms-circuit-brake 
+   - id: ms-circuit-brake    #definido por mi solo es el nombre que se le quiera colocar
+     uri: lb://ms-circuit-brake
      predicates:
       - Path=/circuitBrakeMicro/**  #path definido en el "RestController "Controller (/**) considera todo lo posterior a ese path
 eureka:
