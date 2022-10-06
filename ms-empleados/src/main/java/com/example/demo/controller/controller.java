@@ -8,9 +8,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.vo.EmpleadoVO;
-import com.example.demo.vo.VipEmpleados;
-
 @RestController
 @RequestMapping("/ms-empleados")
 public class controller {
