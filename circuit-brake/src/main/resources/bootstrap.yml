@@ -1,26 +1,9 @@
-server:
-  port: 9089
 spring:
-  application:
-    name: ms-circuit-brake
-resilience4j:
-  circuitbreaker:
-    instances:
-      getOneObjetos:
-        register-health-indicator: true
-        sliding-window-size: 10
-        permitted-number-of-calls-in-half-open-state: 3
-        sliding-window-type: TIME_BASED
-        minimum-number-of-calls: 4
-        wait-duration-in-open-state: 5s
-        failure-rate-threshold: 50
-        event-consumer-buffer-size: 10
-      getAllObjetos:
-        register-health-indicator: true
-        sliding-window-size: 10
-        permitted-number-of-calls-in-half-open-state: 3
-        sliding-window-type: TIME_BASED
-        minimum-number-of-calls: 4
-        wait-duration-in-open-state: 5s
-        failure-rate-threshold: 50
-        event-consumer-buffer-size: 10    
+ application:
+  name: ms-circuit-brake
+ cloud:
+  config:
+   enabled: true
+   uri: http://localhost:8383
+ profiles:
+  active: dev
